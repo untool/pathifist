@@ -1,28 +1,30 @@
 var test = require('ava');
+
 var pathifist = require('./index');
 
 var resolve = pathifist.resolve;
 var join = pathifist.join;
+
 var dedupe = pathifist.dedupeSlashes;
-
 var trim = pathifist.trimSlashes;
-var trimLeading = pathifist.trimLeadingSlashes;
-var trimTrailing = pathifist.trimTrailingSlashes;
-
 var ensure = pathifist.ensureSlashes;
-var ensureLeading = pathifist.ensureLeadingSlashes;
-var ensureTrailing = pathifist.ensureTrailingSlashes;
+
+var trimLeading = pathifist.trimLeadingSlash;
+var trimTrailing = pathifist.trimTrailingSlash;
+
+var ensureLeading = pathifist.ensureLeadingSlash;
+var ensureTrailing = pathifist.ensureTrailingSlash;
 
 test('exports test', function(t) {
   t.is(typeof join, 'function', 'join is a function');
   t.is(typeof resolve, 'function', 'resolve is a function');
   t.is(typeof dedupe, 'function', 'dedupe is a function');
   t.is(typeof trim, 'function', 'trimSlashes is a function');
-  t.is(typeof trimLeading, 'function', 'trimLeadingSlashes is a function');
-  t.is(typeof trimTrailing, 'function', 'trimTrailingSlashes is a function');
   t.is(typeof ensure, 'function', 'ensureSlashes is a function');
-  t.is(typeof ensureLeading, 'function', 'ensureLeadingSlashes is a function');
-  t.is(typeof ensureTrailing, 'function', 'ensureTrailingSlashes is function');
+  t.is(typeof trimLeading, 'function', 'trimLeadingSlash is a function');
+  t.is(typeof trimTrailing, 'function', 'trimTrailingSlash is a function');
+  t.is(typeof ensureLeading, 'function', 'ensureLeadingSlash is a function');
+  t.is(typeof ensureTrailing, 'function', 'ensureTrailingSlash is a function');
 });
 
 test('resolve test', function(t) {
@@ -55,27 +57,27 @@ test('trimSlashes test', function(t) {
   t.is(trim('//foo//bar//'), 'foo//bar', 'multi trim works');
 });
 
-test('trimLeadingSlashes test', function(t) {
-  t.is(trimLeading('/foo/bar/'), 'foo/bar/', 'trimLeading works');
-  t.is(trimLeading('//foo//bar//'), 'foo//bar//', 'multi trimLeading works');
-});
-
-test('trimTrailingSlashes test', function(t) {
-  t.is(trimTrailing('/foo/bar/'), '/foo/bar', 'trimTrailing works');
-  t.is(trimTrailing('//foo//bar//'), '//foo//bar', 'multi trimTrailing works');
-});
-
 test('ensureSlashes test', function(t) {
   t.is(ensure('foo/bar'), '/foo/bar/', 'ensure works');
   t.is(ensure('//foo//bar//'), '/foo//bar/', 'multi ensure works');
 });
 
-test('ensureLeadingSlashes test', function(t) {
+test('trimLeadingSlash test', function(t) {
+  t.is(trimLeading('/foo/bar/'), 'foo/bar/', 'trimLeading works');
+  t.is(trimLeading('//foo//bar//'), 'foo//bar//', 'multi trimLeading works');
+});
+
+test('trimTrailingSlash test', function(t) {
+  t.is(trimTrailing('/foo/bar/'), '/foo/bar', 'trimTrailing works');
+  t.is(trimTrailing('//foo//bar//'), '//foo//bar', 'multi trimTrailing works');
+});
+
+test('ensureLeadingSlash test', function(t) {
   t.is(ensureLeading('foo/bar'), '/foo/bar', 'ensureLeading works');
   t.is(ensureLeading('//foo//bar'), '/foo//bar', 'multi ensureLeading works');
 });
 
-test('ensureTrailingSlashes test', function(t) {
+test('ensureTrailingSlash test', function(t) {
   t.is(ensureTrailing('foo/bar'), 'foo/bar/', 'ensureTrailing works');
   t.is(ensureTrailing('foo//bar//'), 'foo//bar/', 'multi ensureTrailing works');
 });
