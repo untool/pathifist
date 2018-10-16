@@ -32,22 +32,22 @@ exports.trimSlashes = function trimSlashes(path) {
   return path.replace(/^\/*(.*?)\/*$/, '$1');
 };
 
-exports.trimLeadingSlashes = function trimLeadingSlashes(path) {
-  return path.replace(/^\/+/, '');
-};
-
-exports.trimTrailingSlashes = function trimTrailingSlashes(path) {
-  return path.replace(/\/+$/, '');
-};
-
 exports.ensureSlashes = function ensureSlashes(path) {
   return path.replace(/^\/*(.*?)\/*$/, '/$1/');
 };
 
-exports.ensureLeadingSlashes = function ensureLeadingSlashes(path) {
+exports.trimLeadingSlash = function trimLeadingSlash(path) {
+  return path.replace(/^\/+/, '');
+};
+
+exports.trimTrailingSlash = function trimTrailingSlash(path) {
+  return path.replace(/\/+$/, '');
+};
+
+exports.ensureLeadingSlash = function ensureLeadingSlash(path) {
   return path.replace(/^\/*/, '/');
 };
 
-exports.ensureTrailingSlashes = function ensureTrailingSlashes(path) {
+exports.ensureTrailingSlash = function ensureTrailingSlash(path) {
   return path.replace(/\/*$/, '/');
 };
