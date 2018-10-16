@@ -46,22 +46,22 @@ join('./foo', 'bar///', '../baz'); // => ./foo/bar/../baz
 dedupe('//foo//bar//'); // => /foo/bar/
 ```
 
-#### `trim{Leading,Trailing}Slashes(path)`
+#### `trimSlashes(path)` / `trim{Leading,Trailing}Slash(path)`
 
-`trim{Leading,Trailing}Slashes` removes single or consecutive leading and/or trailing slashes from the `path` it is being passed. It leaves internal slashes untouched.
+`trimSlashes` / `trim{Leading,Trailing}Slash` removes single or consecutive leading and/or trailing slashes from the `path` it is being passed. It leaves internal slashes untouched.
 
 ```javascript
 trimSlashes('/foo/bar/'); // => foo/bar
-trimLeadingSlashes('/foo/bar/'); // => foo/bar/
-trimTrailingSlashes('/foo/bar/'); // => /foo/bar
+trimLeadingSlash('/foo/bar/'); // => foo/bar/
+trimTrailingSlash('/foo/bar/'); // => /foo/bar
 ```
 
-#### `ensure{Leading,Trailing}Slashes(path)`
+#### `ensureSlashes(path)` / `ensure{Leading,Trailing}Slash(path)`
 
-`ensure{Leading,Trailing}Slashes` makes sure there are single or consecutive leading and/or trailing slashes in the `path` it is being passed. It leaves internal slashes untouched.
+`ensureSlashes` / `ensure{Leading,Trailing}Slash` makes sure there are single or consecutive leading and/or trailing slash in the `path` it is being passed. It leaves internal slash untouched.
 
 ```javascript
 ensureSlashes('foo/bar'); // => /foo/bar/
-ensureLeadingSlashes('foo/bar'); // => /foo/bar
-ensureTrailingSlashes('foo/bar'); // => foo/bar/
+ensureLeadingSlash('foo/bar'); // => /foo/bar
+ensureTrailingSlash('foo/bar'); // => foo/bar/
 ```
