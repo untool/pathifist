@@ -1,6 +1,6 @@
 {
   "name": "pathifist",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "URL Path Utility",
   "main": "index.js",
   "scripts": {
