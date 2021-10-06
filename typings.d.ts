@@ -1,0 +1,9 @@
+export function resolve(...args: string[]): string;
+export function join(...args: string[]): string;
+export function dedupeSlashes(path: string): string;
+export function trimSlashes(path: string): string;
+export function ensureSlashes(path: string): string;
+export function trimLeadingSlash(path: string): string;
+export function trimTrailingSlash(path: string): string;
+export function ensureLeadingSlash(path: string): string;
+export function ensureTrailingSlash(path: string): string;

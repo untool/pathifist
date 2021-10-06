@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "URL Path Utility",
   "main": "index.js",
+  "types": "typings.d.ts",
   "scripts": {
     "test": "ava --verbose",
     "lint": "eslint --ignore-path .gitignore '**/*.js'",
